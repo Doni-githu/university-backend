@@ -20,7 +20,7 @@ app.use('/api/user', userRoute)
 
 function Run() {
     const PORT = process.env.PORT || 8000
-    mongoose.connect(process.env.LOCAL_URI)
+    mongoose.connect(process.env.MONGO_URI)
         .then(() => console.log('Mongo DB connected'))
         .catch((err) => console.log('Mongo DB could not connect because ' + err))
     app.listen(8000, () => {
