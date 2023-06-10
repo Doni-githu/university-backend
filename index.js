@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 
 app.use(express.json())
 app.use(cors({
-    origin: 'https://nukus-inovation-instituti.onrender.com',
+    origin: '*',
     allowedHeaders: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE']
 }))
