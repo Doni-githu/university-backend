@@ -1,16 +1,19 @@
 const { model, Schema } = require('mongoose')
 
 const UserSchema = new Schema({
-    firstName: { type: String, },
-    lastName: { type: String, },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
     phone: { type: String, required: true },
-    password: { type: String, required: true },
+    password: { type: String },
     place: {
-        region: { type: String, }
+        region: { type: String, required: true }
     },
-    passport: { type: String, },
-    type: { type: String, },
-    rol: {type: String, required: true  }
+    passport: { type: String, required: true },
+    type: { type: String, required: true },
+    rol: { type: String, required: true },
+    lang: { type: String, required: true },
+    time: { type: String, required: true },
+    price: { type: String, required: true }
 })
 
 const User = model("User", UserSchema)
