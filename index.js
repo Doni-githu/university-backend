@@ -8,7 +8,6 @@ const userRoute = require('./routes/user')
 app.get('/', (req, res) => {
     res.status(200).json({ message: 'Success' })
 })
-
 app.use(express.json())
 app.use(cors({
     origin: '*',
