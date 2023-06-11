@@ -14,7 +14,8 @@ const UserSchema = new Schema({
     lang: { type: String, required: true },
     time: { type: String, required: true },
     price: { type: String, required: true },
-    date_of_birth: { type: String, required: true }
+    date_of_birth: { type: String, required: true },
+    father_name: { type: String, required: true }
 })
 
 const User = model("User", UserSchema)
