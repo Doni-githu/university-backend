@@ -6,7 +6,8 @@ const UserSchema = new Schema({
     phone: { type: String, required: true },
     password: { type: String },
     place: {
-        region: { type: String, required: true }
+        region: { type: String, required: true },
+        tuman: { type: String, required: true }
     },
     passport: { type: String, required: true },
     type: { type: String, required: true },
