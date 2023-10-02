@@ -1,12 +1,11 @@
 const router = require('express').Router();
 const User = require('../modules/User');
 const { makeToken, decodeToken } = require('../utils/jwt');
-const bcrypt = require('bcrypt')
 
 router.post('/', async (req, res, next) => {
     const { phone } = req.body;
 
-    const candidate = await User.findOne({ phone });
+    const candidate = await User.findOne({ phone }, { _id: 1 }).lean();
 
     if (candidate) {
         res.status(400).json({
@@ -36,9 +35,9 @@ router.get('/all', async (req, res) => {
 router.get('/', async (req, res) => {
     const userId = decodeToken(req.headers.authorization.replace('Token ', ''))
 
-    const user = await User.findById(userId)
+    const user = await User.findById(userId).lean()
 
-    res.status(200).json(user)
+    res.status(200).send(user)
 })
 
 router.get('/:id', async (req, res) => {
